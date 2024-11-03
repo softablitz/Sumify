@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane  fx:controller="application.CalculatorController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane  fx:controller="application.CalculatorController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@calculator.css">
    <top>
-      <HBox alignment="TOP_RIGHT" BorderPane.alignment="TOP_RIGHT">
+       <HBox alignment="TOP_RIGHT" BorderPane.alignment="TOP_RIGHT">
          <children>
             <Label fx:id="displayField" text="0">
                <font>
