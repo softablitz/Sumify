@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+
+<MenuBar xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuBarController">
+    <Menu>
+        <graphic>
+            <HBox spacing="5">
+                <ImageView fitHeight="20" fitWidth="20">
+                    <image>
+                        <Image url="@https://img.icons8.com/color/48/menu--v1.png"/>
+                    </image>
+                </ImageView>
+                <Label fx:id="selectedOptionLabel" text="Selected Option"/>
+            </HBox>
+        </graphic>
+        <MenuItem text="Scientific Mode" onAction="#handleMenuSelection"/>
+        <MenuItem text="Graphing Mode" onAction="#handleMenuSelection"/>
+        <MenuItem text="Programmer Mode" onAction="#handleMenuSelection"/>
+        <MenuItem text="Date Calculation" onAction="#handleMenuSelection"/>
+        <Menu text="Converter">
+            <MenuItem text="Currency" onAction="#handleMenuSelection"/>
+            <MenuItem text="Volume" onAction="#handleMenuSelection"/>
+            <MenuItem text="Length" onAction="#handleMenuSelection"/>
+        </Menu>
+    </Menu>
+</MenuBar>
