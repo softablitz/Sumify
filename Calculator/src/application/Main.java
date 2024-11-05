@@ -13,16 +13,20 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.currentStage = primaryStage;
-        loadScene("Calculator.fxml");
+        loadScene("Calculator.fxml", "Standard Mode"); // Load with default label
         primaryStage.show();
     }
-    public void loadScene(String fxml) {
+
+    public void loadScene(String fxml, String selectedText) {
         try {
+            // Load the menu bar
             FXMLLoader menuBarLoader = new FXMLLoader(getClass().getResource("MenuBar.fxml"));
             Parent menuBar = menuBarLoader.load();
             MenuBarController menuBarController = menuBarLoader.getController();
             menuBarController.setMain(this);
+            menuBarController.updateLabel(selectedText); // Update the label with selected option
             
+            // Load the calculator view
             FXMLLoader calculatorLoader = new FXMLLoader(getClass().getResource(fxml));
             Parent calculatorRoot = calculatorLoader.load();
             BorderPane root = new BorderPane();
@@ -33,8 +37,9 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-    public void loadCalculator(String fxml) {
-        loadScene(fxml);
+
+    public void loadCalculator(String fxml, String selectedText) {
+        loadScene(fxml, selectedText); // Pass the selected text to update the label
     }
 
     public static void main(String[] args) {
