@@ -1,25 +1,25 @@
 package application;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 
 public class CalculatorController {
 
     @FXML
-    private Label displayField; // Connects to the Label in FXML
-
+    private Label displayField;
+    @FXML
+    private Label selectedOptionLabel; 
     private StringBuilder currentInput = new StringBuilder();
     private String operator;
     private double firstOperand;
     private boolean resetInput = false;
 
-    // Handle number button clicks
     @FXML
     private void handleNumberClick(ActionEvent event) {
         if (resetInput) {
-            currentInput.setLength(0); // Clear previous result if needed
+            currentInput.setLength(0); 
             resetInput = false;
         }
 
@@ -27,17 +27,13 @@ public class CalculatorController {
         currentInput.append(clickedButton.getText());
         displayField.setText(currentInput.toString());
     }
-
-    // Handle operator button clicks
     @FXML
     private void handleOperatorClick(ActionEvent event) {
         Button clickedButton = (Button) event.getSource();
         operator = clickedButton.getText();
         firstOperand = Double.parseDouble(currentInput.toString());
-        currentInput.setLength(0); // Clear the current input for the next operand
+        currentInput.setLength(0); 
     }
-
-    // Handle equals button click
     @FXML
     private void handleEqualsClick() {
         double secondOperand;
@@ -80,10 +76,9 @@ public class CalculatorController {
         displayField.setText(String.valueOf(result));
         currentInput.setLength(0);
         currentInput.append(result);
-        resetInput = true; // Next input will reset
+        resetInput = true; 
     }
 
-    // Handle clear button click
     @FXML
     private void handleClearClick() {
         currentInput.setLength(0);
@@ -93,27 +88,75 @@ public class CalculatorController {
         resetInput = false;
     }
 
-    // Handle decimal button click
     @FXML
     private void handleDecimalClick() {
         if (!currentInput.toString().contains(".")) {
             if (currentInput.length() == 0) {
-                currentInput.append("0"); // Start with "0" if no input yet
+                currentInput.append("0");
             }
             currentInput.append(".");
             displayField.setText(currentInput.toString());
         }
     }
 
-    // Handle toggle sign button click
     @FXML
     private void handleToggleSignClick() {
         if (currentInput.length() > 0) {
             double currentValue = Double.parseDouble(currentInput.toString());
-            currentValue *= -1; // Toggle the sign
-            currentInput.setLength(0); // Clear current input
-            currentInput.append(currentValue); // Append the toggled value
+            currentValue *= -1;
+            currentInput.setLength(0); 
+            currentInput.append(currentValue);
             displayField.setText(currentInput.toString());
         }
     }
+    @FXML
+private void switchToScientificMode() {
+   
+}
+
+@FXML
+private void switchToGraphingMode() {
+    
+}
+
+@FXML
+private void switchToProgrammerMode() {
+    
+}
+
+@FXML
+private void switchToDateCalculation() {
+   
+}
+
+@FXML
+private void openCurrencyConverter() {
+    
+}
+
+@FXML
+private void openVolumeConverter() {
+    
+}
+
+@FXML
+private void openLengthConverter() {
+    // Code to open a length converter
+}
+@FXML
+private void handleMenuSelection(ActionEvent event) {
+    MenuItem selectedItem = (MenuItem) event.getSource();
+    String option = selectedItem.getText();
+    
+    // Debugging output
+    System.out.println("Selected option: " + option);
+    
+    if (selectedOptionLabel != null) {
+        selectedOptionLabel.setText(option);
+    } else {
+        System.err.println("selectedOptionLabel is null");
+    }
+}
+
+
 }
