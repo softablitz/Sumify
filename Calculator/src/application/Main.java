@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Calculator.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("scientificCalculator.fxml"));
          primaryStage.getIcons().addAll(new Image(getClass().getResource("icon.png").toString()));
         primaryStage.setTitle("Calculator");
         primaryStage.setScene(new Scene(root));
