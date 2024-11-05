@@ -1,66 +1,48 @@
 package application;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.event.ActionEvent;
-import javafx.stage.Stage;
-
 public class MenuBarController {
-
     @FXML
-    private Label selectedOptionLabel; // Label to display the selected option
-
+    private Label selectedOptionLabel;
+    private Main main;
+    public void setMain(Main main) {
+        this.main = main;
+    }
     @FXML
     public void handleMenuSelection(ActionEvent event) {
-        MenuItem selectedItem = (MenuItem) event.getSource(); // Get the selected menu item
-        String selectedText = selectedItem.getText(); // Get the text of the selected menu item
-
-        // Update the label with the selected option
+        MenuItem selectedItem = (MenuItem) event.getSource();
+        String selectedText = selectedItem.getText(); 
         selectedOptionLabel.setText(selectedText);
 
-        // Here you can add logic to switch modes or update the calculator functionality
         switch (selectedText) {
             case "Scientific Mode":
-                loadScientificCalculator();
+                main.loadCalculator("scientificCalculator.fxml");
+                break;
+            case "Standard Mode":
+                main.loadCalculator("scientificCalculator.fxml");
                 break;
             case "Graphing Mode":
-                // Placeholder for graphing mode
-                System.out.println("Switched to Graphing Mode");
+                main.loadCalculator("graphingCalculator.fxml");
                 break;
             case "Programmer Mode":
-                // Placeholder for programmer mode
-                System.out.println("Switched to Programmer Mode");
+                main.loadCalculator("programmerCalculator.fxml");
                 break;
             case "Date Calculation":
-                // Placeholder for date calculation
-                System.out.println("Switched to Date Calculation");
+                main.loadCalculator("dateCalculator.fxml");
                 break;
             case "Currency":
-                // Placeholder for currency conversion
-                System.out.println("Switched to Currency Converter");
+                main.loadCalculator("currencyConverter.fxml");
                 break;
             case "Volume":
-                // Placeholder for volume conversion
-                System.out.println("Switched to Volume Converter");
+                main.loadCalculator("volumeConverter.fxml");
                 break;
             case "Length":
-                // Placeholder for length conversion
-                System.out.println("Switched to Length Converter");
+                main.loadCalculator("lengthConverter.fxml");
                 break;
             default:
                 break;
-        }
-    }
-
-    private void loadScientificCalculator() {
-        try {
-            // Retrieve the current stage from the selectedOptionLabel's scene
-            Stage currentStage = (Stage) selectedOptionLabel.getScene().getWindow();
-            Main main = new Main(); // Create a new instance of Main
-            main.loadScientificCalculator(currentStage); // Pass the current stage to load the scientific calculator
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }

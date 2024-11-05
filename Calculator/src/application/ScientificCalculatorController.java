@@ -72,7 +72,7 @@ public class ScientificCalculatorController {
             case "√":
                 return (float) Math.sqrt(number1);
             case "Sin":
-                return (float) Math.sin(Math.toRadians(number1)); // Convert to radians for trigonometric functions
+                return (float) Math.sin(Math.toRadians(number1)); 
             case "Cos":
                 return (float) Math.cos(Math.toRadians(number1));
             case "Tan":
@@ -88,7 +88,7 @@ public class ScientificCalculatorController {
             case "ln":
                 return (float) Math.log(number1);
             case "x!":
-                return factorial((int) number1); // Ensure factorial is computed for integers
+                return factorial((int) number1); 
             default:
                 break;
         }
@@ -104,7 +104,7 @@ public class ScientificCalculatorController {
             case "*":
                 return number1 * number2;
             case "/":
-                return (number2 == 0) ? 0 : number1 / number2; // Handle division by zero
+                return (number2 == 0) ? 0 : number1 / number2; 
             case "Mod":
                 return number1 % number2;
             case "x^y":
@@ -115,9 +115,9 @@ public class ScientificCalculatorController {
         return 0;
     }
 
-    // Helper method to compute factorial
+   
     private int factorial(int number) {
-        if (number < 0) return 0; // Factorial for negative numbers is not defined
+        if (number < 0) return 0; 
         int fact = 1;
         for (int i = 1; i <= number; i++) {
             fact *= i;
