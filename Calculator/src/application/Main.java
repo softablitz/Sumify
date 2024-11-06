@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -14,6 +15,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         this.currentStage = primaryStage;
         loadScene("Calculator.fxml", "Standard Mode"); // Load with default label
+        primaryStage.getIcons().addAll(new Image(getClass().getResource("icon.png").toString()));
         primaryStage.show();
     }
 
@@ -25,7 +27,6 @@ public class Main extends Application {
             MenuBarController menuBarController = menuBarLoader.getController();
             menuBarController.setMain(this);
             menuBarController.updateLabel(selectedText); // Update the label with selected option
-            
             // Load the calculator view
             FXMLLoader calculatorLoader = new FXMLLoader(getClass().getResource(fxml));
             Parent calculatorRoot = calculatorLoader.load();
